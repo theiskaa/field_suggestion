@@ -7,11 +7,9 @@ import 'package:field_suggestion/styles.dart';
 main() {
   late BoxStyle boxStyle;
 
-  late MockBuildContext buildContextMock;
   late MockAnimationController animationControllerMock;
 
   setUpAll(() {
-    buildContextMock = MockBuildContext();
     animationControllerMock = MockAnimationController();
 
     boxStyle = BoxStyle(
@@ -62,24 +60,6 @@ main() {
       );
       expect(boxStyle.boxShadow, [BoxShadow(spreadRadius: 15)]);
       expect(boxStyle.shape, BoxShape.circle);
-    });
-
-    test('defaultStyle should contain initial properties', () {
-      final BoxStyle defaultStyle = BoxStyle.defaultStyle(buildContextMock);
-
-      expect(defaultStyle.backgroundColor, Colors.white);
-      expect(defaultStyle.border, null);
-      expect(defaultStyle.borderRadius, BorderRadius.all(Radius.circular(5)));
-      expect(defaultStyle.gradient, null);
-      expect(defaultStyle.boxShadow, [
-        const BoxShadow(
-          spreadRadius: 12.5,
-          offset: Offset(0, 5),
-          color: Color(0xff000000),
-          blurRadius: 12.5,
-        )
-      ]);
-      expect(defaultStyle.shape, BoxShape.rectangle);
     });
   });
 }

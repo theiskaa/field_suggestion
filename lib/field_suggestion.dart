@@ -1,9 +1,3 @@
-//
-// Copyright 2021-2022 present Insolite. All rights reserved.
-// Use of this source code is governed by Apache 2.0 license
-// that can be found in the LICENSE file.
-//
-
 library field_suggestion;
 
 import 'dart:async';
@@ -479,12 +473,10 @@ class FieldSuggestion<T> extends StatefulWidget {
   final Curve slideCurve;
 
   @override
-  _FieldSuggestionState createState() =>
-      _FieldSuggestionState<T>(boxController);
+  _FieldSuggestionState createState() => _FieldSuggestionState<T>(boxController);
 }
 
-class _FieldSuggestionState<T> extends State<FieldSuggestion<T>>
-    with TickerProviderStateMixin {
+class _FieldSuggestionState<T> extends State<FieldSuggestion<T>> with TickerProviderStateMixin {
   // Initialize BoxController closures.
   _FieldSuggestionState(BoxController? _boxController) {
     if (_boxController == null) return;
@@ -678,20 +670,21 @@ class _FieldSuggestionState<T> extends State<FieldSuggestion<T>>
     // Otherwise, it will follows targetWidget.
     return CompositedTransformTarget(
       link: _layerLink,
-      child: widget.targetWidget ?? TextFormField(
-        keyboardType: widget.inputType,
-        focusNode: widget.focusNode,
-        controller: widget.textController,
-        maxLines: widget.maxLines,
-        decoration: widget.inputDecoration,
-        style: widget.inputStyle,
-        validator: widget.validator,
-        cursorWidth: widget.cursorWidth,
-        cursorHeight: widget.cursorHeight,
-        cursorRadius: widget.cursorRadius,
-        cursorColor: widget.cursorColor,
-        keyboardAppearance: widget.keyboardAppearance,
-      ),
+      child: widget.targetWidget ??
+          TextFormField(
+            keyboardType: widget.inputType,
+            focusNode: widget.focusNode,
+            controller: widget.textController,
+            maxLines: widget.maxLines,
+            decoration: widget.inputDecoration,
+            style: widget.inputStyle,
+            validator: widget.validator,
+            cursorWidth: widget.cursorWidth,
+            cursorHeight: widget.cursorHeight,
+            cursorRadius: widget.cursorRadius,
+            cursorColor: widget.cursorColor,
+            keyboardAppearance: widget.keyboardAppearance,
+          ),
     );
   }
 
@@ -712,8 +705,7 @@ class _FieldSuggestionState<T> extends State<FieldSuggestion<T>>
             valueListenable: searchManager,
             builder: (context, SearchState<T> value, _) {
               final len = value.snapshot.data?.length ?? 1;
-              final match =
-                  widget.future != null ? (len > 1 ? len : 1) : matchers.length;
+              final match = widget.future != null ? (len > 1 ? len : 1) : matchers.length;
 
               return BoxSizer(
                 constraints: BoxConstraints(
@@ -734,12 +726,10 @@ class _FieldSuggestionState<T> extends State<FieldSuggestion<T>>
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
                     itemCount: matchers.length,
-                    separatorBuilder: widget.separatorBuilder ??
-                        (_, __) => const SizedBox.shrink(),
+                    separatorBuilder: widget.separatorBuilder ?? (_, __) => const SizedBox.shrink(),
                     itemBuilder: (context, index) {
                       // Get the index of matcher[i] in suggestions list.
-                      final mindex =
-                          widget.suggestions!.indexOf(matchers[index]);
+                      final mindex = widget.suggestions!.indexOf(matchers[index]);
                       return widget.itemBuilder!(context, mindex);
                     },
                   );
@@ -753,9 +743,7 @@ class _FieldSuggestionState<T> extends State<FieldSuggestion<T>>
       color: boxStyle?.backgroundColor,
       borderRadius: boxStyle?.borderRadius,
       elevation: 0,
-      child: !widget.wSlideAnimation
-          ? _box
-          : SlideTransition(position: _slide!, child: _box),
+      child: !widget.wSlideAnimation ? _box : SlideTransition(position: _slide!, child: _box),
     );
   }
 }

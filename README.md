@@ -1,5 +1,5 @@
-<!-- 
-LOGO: https://user-images.githubusercontent.com/59066341/137347177-c6800b7b-3725-4cdf-952d-e7f5bfdab0b1.png 
+<!--
+LOGO: https://user-images.githubusercontent.com/59066341/137347177-c6800b7b-3725-4cdf-952d-e7f5bfdab0b1.png
 TITLE LOGO: https://user-images.githubusercontent.com/59066341/137352996-0d132ee0-0fe3-42da-90c4-f477ffa91228.png
 -->
 
@@ -29,11 +29,11 @@ TITLE LOGO: https://user-images.githubusercontent.com/59066341/137352996-0d132ee
 </div><br>
 
 ## Installing
-- See the official installing guidline from [field_suggestion/install](https://github.com/insolite-dev/field_suggestion/wiki/Installing)
+- See the official installing guidline from [field_suggestion/install](https://github.com/theiskaa/field_suggestion/wiki/Installing)
 
 ## Usage
 
-- For more detailed examples refer to the official documentation from [field_suggestion/wiki](https://github.com/insolite-dev/field_suggestion/wiki)
+- For more detailed examples refer to the official documentation from [field_suggestion/wiki](https://github.com/theiskaa/field_suggestion/wiki)
 
 In this example, we're using the `FieldSuggestion.network` widget to display suggestions for a username input field. We've provided an `inputDecoration` with a hint text, a `future` function that fetches the suggestions based on the user input, a `textController` that controls the text in the input field, a `boxController` that controls the visibility of the suggestion box, and a builder function that defines how the suggestions are displayed in the suggestion box.
 

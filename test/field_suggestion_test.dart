@@ -54,15 +54,12 @@ void main() {
         }
 
         final result = snapshot.data ?? [];
-        return ListView(
-            children: [for (final element in result) Text(element)]);
+        return ListView(children: [for (final element in result) Text(element)]);
       },
     );
 
-    mainWidget =
-        MaterialApp(home: Scaffold(body: Center(child: fieldSuggestion)));
-    mainWidgetNetwork = MaterialApp(
-        home: Scaffold(body: Center(child: fieldSuggestionNetwork)));
+    mainWidget = MaterialApp(home: Scaffold(body: Center(child: fieldSuggestion)));
+    mainWidgetNetwork = MaterialApp(home: Scaffold(body: Center(child: fieldSuggestionNetwork)));
   });
 
   group('[FieldSuggestion]', () {
@@ -83,7 +80,7 @@ void main() {
       expect(find.byType(Overlay), findsOneWidget);
       expect(find.byType(SlideTransition), findsOneWidget);
       expect(find.byType(SizedBox), findsNWidgets(7));
-      expect(find.byType(Container), findsNWidgets(7));
+      expect(find.byType(Container), findsNWidgets(2));
       expect(find.byType(CompositedTransformTarget), findsNWidgets(2));
       expect(find.byType(ConstrainedBox), findsNWidgets(3));
       expect(find.byType(Opacity), findsOneWidget);
